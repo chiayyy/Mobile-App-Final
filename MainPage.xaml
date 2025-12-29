@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SOSEmergency.MainPage"
+             BackgroundColor="#1a1a2e">
+
+    <ScrollView>
+        <Grid Padding="20" RowSpacing="12" ColumnSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Frame Grid.Row="0" Grid.ColumnSpan="2"
+                   BackgroundColor="#e94560"
+                   CornerRadius="15"
+                   Padding="20"
+                   HasShadow="True">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="&#x26A0;"
+                           FontSize="40"
+                           TextColor="White"
+                           VerticalOptions="Center"/>
+                    <StackLayout Grid.Column="1" VerticalOptions="Center" Margin="15,0,0,0">
+                        <Label Text="SOS EMERGENCY"
+                               FontSize="24"
+                               FontAttributes="Bold"
+                               TextColor="White"/>
+                        <Label Text="Location Tracking System"
+                               FontSize="14"
+                               TextColor="#ffccd5"/>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+
+            <Frame Grid.Row="1" Grid.ColumnSpan="2"
+                   BackgroundColor="#16213e"
+                   CornerRadius="12"
+                   Padding="15"
+                   HasShadow="True">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Frame BackgroundColor="#0f3460"
+                           CornerRadius="25"
+                           WidthRequest="50"
+                           HeightRequest="50"
+                           Padding="0"
+                           HasShadow="False">
+                        <Label Text="&#x1F4F6;"
+                               FontSize="24"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                    </Frame>
+                    <StackLayout Grid.Column="1" VerticalOptions="Center" Margin="15,0,0,0">
+                        <Label Text="Network Status"
+                               FontSize="12"
+                               TextColor="#8892b0"/>
+                        <Label x:Name="ConnectivityLabel"
+                               Text="Checking..."
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="White"/>
+                    </StackLayout>
+                    <Frame x:Name="StatusIndicator"
+                           Grid.Column="2"
+                           BackgroundColor="#ffd700"
+                           CornerRadius="10"
+                           WidthRequest="20"
+                           HeightRequest="20"
+                           Padding="0"
+                           HasShadow="False"
+                           VerticalOptions="Center"/>
+                </Grid>
+            </Frame>
+
+            <Frame Grid.Row="2" Grid.Column="0"
+                   BackgroundColor="#16213e"
+                   CornerRadius="12"
+                   Padding="15"
+                   HasShadow="True">
+                <StackLayout Spacing="8">
+                    <Frame BackgroundColor="#e94560"
+                           CornerRadius="20"
+                           WidthRequest="40"
+                           HeightRequest="40"
+                           Padding="0"
+                           HasShadow="False"
+                           HorizontalOptions="Start">
+                        <Label Text="&#x1F4CD;"
+                               FontSize="18"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                    </Frame>
+                    <Label Text="LATITUDE"
+                           FontSize="11"
+                           TextColor="#8892b0"
+                           FontAttributes="Bold"/>
+                    <Label x:Name="LatitudeLabel"
+                           Text="Loading..."
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="#00d9ff"/>
+                </StackLayout>
+            </Frame>
+
+            <Frame Grid.Row="2" Grid.Column="1"
+                   BackgroundColor="#16213e"
+                   CornerRadius="12"
+                   Padding="15"
+                   HasShadow="True">
+                <StackLayout Spacing="8">
+                    <Frame BackgroundColor="#e94560"
+                           CornerRadius="20"
+                           WidthRequest="40"
+                           HeightRequest="40"
+                           Padding="0"
+                           HasShadow="False"
+                           HorizontalOptions="Start">
+                        <Label Text="&#x1F30D;"
+                               FontSize="18"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                    </Frame>
+                    <Label Text="LONGITUDE"
+                           FontSize="11"
+                           TextColor="#8892b0"
+                           FontAttributes="Bold"/>
+                    <Label x:Name="LongitudeLabel"
+                           Text="Loading..."
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="#00d9ff"/>
+                </StackLayout>
+            </Frame>
+
+            <Frame Grid.Row="3" Grid.ColumnSpan="2"
+                   BackgroundColor="#16213e"
+                   CornerRadius="12"
+                   Padding="15"
+                   HasShadow="True">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Column="0" HorizontalOptions="Center">
+                        <Label Text="ACCURACY"
+                               FontSize="11"
+                               TextColor="#8892b0"
+                               HorizontalOptions="Center"/>
+                        <Label x:Name="AccuracyLabel"
+                               Text="--"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               TextColor="#00ff88"
+                               HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="1" HorizontalOptions="Center">
+                        <Label Text="LAST UPDATE"
+                               FontSize="11"
+                               TextColor="#8892b0"
+                               HorizontalOptions="Center"/>
+                        <Label x:Name="TimestampLabel"
+                               Text="--"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               TextColor="#ffd700"
+                               HorizontalOptions="Center"/>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+
+            <Frame Grid.Row="4" Grid.ColumnSpan="2"
+                   BackgroundColor="#16213e"
+                   CornerRadius="12"
+                   Padding="15"
+                   HasShadow="True">
+                <StackLayout Spacing="10">
+                    <Label Text="TRIP ID"
+                           FontSize="12"
+                           TextColor="#8892b0"
+                           FontAttributes="Bold"/>
+                    <Frame x:Name="TripIdFrame"
+                           BackgroundColor="#0f3460"
+                           CornerRadius="8"
+                           Padding="5"
+                           HasShadow="False">
+                        <Entry x:Name="TripIdEntry"
+                               Placeholder="Enter Trip ID (e.g., SOS-001)"
+                               PlaceholderColor="#555555"
+                               TextColor="White"
+                               FontSize="16"
+                               BackgroundColor="Transparent"
+                               TextChanged="OnTripIdTextChanged"/>
+                    </Frame>
+                    <Label x:Name="ValidationErrorLabel"
+                           Text=""
+                           FontSize="12"
+                           TextColor="#ff4444"
+                           IsVisible="False"/>
+                    <StackLayout x:Name="ValidationRulesPanel" Spacing="3">
+                        <Label x:Name="Rule1Label"
+                               Text="&#x2022; Minimum 3 characters"
+                               FontSize="11"
+                               TextColor="#666666"/>
+                        <Label x:Name="Rule2Label"
+                               Text="&#x2022; Maximum 20 characters"
+                               FontSize="11"
+                               TextColor="#666666"/>
+                        <Label x:Name="Rule3Label"
+                               Text="&#x2022; Only letters, numbers, and hyphens"
+                               FontSize="11"
+                               TextColor="#666666"/>
+                        <Label x:Name="Rule4Label"
+                               Text="&#x2022; Must start with a letter"
+                               FontSize="11"
+                               TextColor="#666666"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <Frame Grid.Row="5" Grid.ColumnSpan="2"
+                   BackgroundColor="#0f3460"
+                   CornerRadius="10"
+                   Padding="12"
+                   HasShadow="True">
+                <Label x:Name="StatusLabel"
+                       Text="Initializing location services..."
+                       FontSize="14"
+                       TextColor="#8892b0"
+                       HorizontalTextAlignment="Center"/>
+            </Frame>
+
+            <Frame Grid.Row="6" Grid.ColumnSpan="2"
+                   BackgroundColor="#16213e"
+                   CornerRadius="10"
+                   Padding="10"
+                   HasShadow="True">
+                <Label x:Name="RecordCountLabel"
+                       Text="Saved Records: 0"
+                       FontSize="14"
+                       TextColor="#00d9ff"
+                       HorizontalTextAlignment="Center"
+                       FontAttributes="Bold"/>
+            </Frame>
+
+            <Button Grid.Row="7" Grid.Column="0"
+                    x:Name="RefreshButton"
+                    Text="REFRESH"
+                    FontSize="14"
+                    FontAttributes="Bold"
+                    BackgroundColor="#0f3460"
+                    TextColor="White"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    Clicked="OnRefreshClicked"/>
+
+            <Button Grid.Row="7" Grid.Column="1"
+                    x:Name="SaveButton"
+                    Text="SAVE TRIP"
+                    FontSize="14"
+                    FontAttributes="Bold"
+                    BackgroundColor="#e94560"
+                    TextColor="White"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    IsEnabled="False"
+                    Clicked="OnSaveClicked"/>
+
+            <Button Grid.Row="8" Grid.ColumnSpan="2"
+                    x:Name="ViewRecordsButton"
+                    Text="VIEW SAVED RECORDS"
+                    FontSize="14"
+                    FontAttributes="Bold"
+                    BackgroundColor="#16213e"
+                    TextColor="#00d9ff"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    Clicked="OnViewRecordsClicked"/>
+
+        </Grid>
+    </ScrollView>
+
+</ContentPage>
